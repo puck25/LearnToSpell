@@ -1,12 +1,12 @@
 //declare variables
 var variables = new Object();
-variables.levelAnswers = ["cat", "dog", "rat"];
-variables.i = (0);
-variables.level = (1);
-variables.score = (1);
-variables.pic = ('#' + variables.levelAnswers[variables.i]);
-variables.starpoints = (1);
-variables.progresslength = $('#progressbar').width();
+        variables.levelAnswers = ["cat", "dog", "rat"];
+        variables.i = (0);
+        variables.level = (1);
+        variables.score = (1);
+        variables.pic = ('#' + variables.levelAnswers[variables.i]);
+        variables.starpoints = (1);
+        variables.progresslength = $('#progressbar').width();
 
 //makes instructions disapear
 $(document).ready(function () {
@@ -22,7 +22,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#play').click(function () {
         $('#result').fadeOut(1000);
-        $('span').html(' ' + level);
+        $('span').html(' ' + variables.level);
         $('#progressbar').fadeIn('slow');
         $(variables.pic).fadeIn('slow');
         $('form').fadeIn('slow');
