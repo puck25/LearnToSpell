@@ -1,10 +1,12 @@
+$(document).ready(function(){
+    
 //declare variables
 var variables = new Object();
         variables.levelAnswers = ["cat", "dog", "rat"];
         variables.i = (0);
         variables.level = (1);
         variables.score = (1);
-        variables.pic = ('#' + variables.levelAnswers[variables.i]);
+        variables.pic = ('#' + level1.answers[variables.i]);
         variables.starpoints = (1);
         variables.progresslength = $('#progressbar').width();
 
@@ -21,7 +23,7 @@ $(document).ready(function () {
 //shows controls for start of game
 $(document).ready(function () {
     $('#play').click(function () {
-        $('#result').fadeOut(1000);
+        $('#result').fadeOut(1000);9
         $('span').html(' ' + variables.level);
         $('#progressbar').fadeIn('slow');
         $(variables.pic).fadeIn('slow');
@@ -45,7 +47,7 @@ $(document).ready(function () {
             variables.i++;
             animate(progress);
             $('input[name=Word]').val('');
-            pic = '#' + variables.levelAnswers[variables.i];
+            variables.pic = '#' + variables.levelAnswers[variables.i];
             $(variables.pic).fadeIn(1000);
             variables.score++;
             if (variables.i >= 3) {
@@ -65,7 +67,7 @@ $(document).ready(function () {
     });
 });
 
-//loads next level
+//loads next levelX
 $(document).ready(function () {
     $('#nextlevel').click(function () {
         $('#result').fadeOut(1000);
@@ -77,7 +79,7 @@ $(document).ready(function () {
 });
 
 
-//works out the length of the progressbar and diveds the value by the amount of questions in the level
+//works out the length of the progressbar and divs the value by the amount of questions in the level
 var progress = function () {
     return variables.progresslength / variables.levelAnswers.length;
 };
@@ -86,3 +88,5 @@ var progress = function () {
 var animate = function (progress) {
     $('#lightningimg').animate({left:'+='+progress(variables.progresslength)});
 };
+
+});
