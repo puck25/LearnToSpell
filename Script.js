@@ -1,12 +1,12 @@
 //declare variables
-var levelAnswers = ["cat", "dog", "rat"];
-var i = (0);
-var level = (1);
-var score = (1);
-var pic = ('#' + levelAnswers[i]);
-var starpoints = (1);
-var progresslength = $('#progressbar').width();
-
+var variables = new Object();
+variables.levelAnswers = ["cat", "dog", "rat"];
+variables.i = (0);
+variables.level = (1);
+variables.score = (1);
+variables.pic = ('#' + variables.levelAnswers[variables.i]);
+variables.starpoints = (1);
+variables.progresslength = $('#progressbar').width();
 
 //makes instructions disapear
 $(document).ready(function () {
@@ -24,7 +24,7 @@ $(document).ready(function () {
         $('#result').fadeOut(1000);
         $('span').html(' ' + level);
         $('#progressbar').fadeIn('slow');
-        $(pic).fadeIn('slow');
+        $(variables.pic).fadeIn('slow');
         $('form').fadeIn('slow');
         $('span').fadeIn('slow');
         $('#lightning').fadeIn('slow');
@@ -37,22 +37,22 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#clickme').click(function () {
         var answer = $('input[name=Word]').val();
-        if (answer == levelAnswers[i]) {
-            $(pic).effect("explode", 500);
+        if (answer == variables.levelAnswers[variables.i]) {
+            $(variables.pic).effect("explode", 500);
             $('#result').html("WOW! You are right, great work!");
             $('#result').fadeIn(1000);
-            $('#points').html(score);
-            i++;
+            $('#points').html(variables.score);
+            variables.i++;
             animate(progress);
             $('input[name=Word]').val('');
-            pic = '#' + levelAnswers[i];
-            $(pic).fadeIn(1000);
-            score++;
-            if (i >= 3) {
+            pic = '#' + variables.levelAnswers[variables.i];
+            $(variables.pic).fadeIn(1000);
+            variables.score++;
+            if (variables.i >= 3) {
                 $('#result').html("Well done, you have completed the first level! Here is a gold star!");
                 $('#star').fadeIn(1000);
-                $('#starpoints').html(starpoints);
-                starpoints++;
+                $('#starpoints').html(variables.starpoints);
+                variables.starpoints++;
             }
             else {
 
@@ -70,19 +70,19 @@ $(document).ready(function () {
     $('#nextlevel').click(function () {
         $('#result').fadeOut(1000);
         $('#star').fadeOut(1000);
-        level++;
-        $('span').html(' ' + level);
-        $('#lightningimg').animate({left:'-='+progresslength+'px'});
+        variables.level++;
+        $('span').html(' ' + variables.level);
+        $('#lightningimg').animate({left:'-='+variables.progresslength+'px'});
     });
 });
 
 
 //works out the length of the progressbar and diveds the value by the amount of questions in the level
 var progress = function () {
-    return progresslength / levelAnswers.length;
+    return variables.progresslength / variables.levelAnswers.length;
 };
 
 //animates the progress icon to show progress of the level.
 var animate = function (progress) {
-    $('#lightningimg').animate({left:'+='+progress(progresslength)});
+    $('#lightningimg').animate({left:'+='+progress(variables.progresslength)});
 };
