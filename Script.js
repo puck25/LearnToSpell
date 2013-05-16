@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-
-
     //level answers and ImgRef
     var level1 = new Object();
     level1.answers1 = 'cat';
@@ -14,9 +12,9 @@ $(document).ready(function () {
     variables.levelmove = (0);
     variables.answermove = (0);
     variables.answerid = (1);
-    variables.move = (0);
+    //variables.move = (0);
     variables.objecttype = (0);
-    variables.currentlevel = ['level1', 'level2', 'level2'];
+    variables.currentlevel = ['level1', 'level2', 'level3'];
     variables.object = ['.answers', '.ImgRef'];
     variables.total = variables.currentlevel[variables.levelmove] + variables.object[variables.objecttype] + variables.answerid;
     //variables.levelAnswers = ["cat", "dog", "rat"];
@@ -50,16 +48,22 @@ $(document).ready(function () {
         });
     });
 
-    var answeroutput = function () {
-        return variables.total;
-    }
 
+    //function to return the value of variables.total
+    var totaloutput = function () {
+        return variables.total;
+    };
+
+//is supposed to take in the return of totaloutput and give you its value
+    var answeroutput = function (totaloutput) { 
+    
+    };
 
     //checks if word typed matches the answer in game
     $(document).ready(function () {
         $('#clickme').click(function () {
             var answer = $('input[name=Word]').val();
-            if (answer == variables.total) {
+            if (answer == answeroutput()) {
                 $(variables.pic).effect("explode", 500);
                 $('#result').html("WOW! You are right, great work!");
                 $('#result').fadeIn(1000);
