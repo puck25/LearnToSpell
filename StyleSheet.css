@@ -192,3 +192,14 @@ form{
     width:100px;
     z-index: 1;
 }
+
+#imgLoad{
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-color: #b6ff00;
+    border-radius: 5px;
+    width:150px;
+    height: 150px;
+    clear: both;
+}
