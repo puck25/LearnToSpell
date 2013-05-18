@@ -1,19 +1,6 @@
 //$(document).ready(function () {
 
-    //load levels
 
-    var levels =
-    [
-        { "Name": "Level1", "Answers":
-            [
-                { "Word": "cat", "imgref": '<img class="mainImages" src="/imganswers/cat.jpg" alt="Cat" height="148" width="148">' },
-                { "Word": "dog", "imgref": '<img class="mainImages" src="/imganswers/dog.jpg" alt="Cat" height="148" width="148">' },
-                { "Word": "rat", "imgref": '<img class="mainImages" src="/imganswers/rat.jpg" alt="Cat" height="148" width="148">' }
-
-            ]
-
-        }
-    ];
 
     var star = {image:'<img class="mainImages" src="/images/star.png" alt="Cat" height="148" width="148">'}
 
@@ -22,9 +9,12 @@
     var currentAnswer = 0;
     var currentImage = 0;
     var level = 1;
-    var levelLenght = levels[currentLevel].Answers.length;
+    var currentlevelLenghtt = levels[currentLevel].Answers.length;
     var score = 0;
     var starpoints = 1;
+    var totalAmountofLevels = levels.lenght;
+    var Levelcomplete = 1;
+
 
     //hide instruction screen
     $(document).ready(function () {
@@ -68,18 +58,21 @@
         if (answer === correctAnswer) {
             currentAnswer++;
             score++;
-            if (score === levelLenght) {
-                animate;
+            if (score === currentlevelLenghtt) {
+                animate(progress);
                 $('.mainImages').effect("explode", 500);
                 $('#imgLoad').html(pic);
                 $('.mainImages').fadeIn(1000);
                 $('#points').html(score);
-                $('#result').html("Well done, you have completed the first level! Here is a gold star!");
+                $('#result').html('Well done, you have completed level!' + ' ' + Levelcomplete + '.' + 'Here is a gold star!');
                 $('#starpoints').html(starpoints);
-                $('#imgLoad').html(star.image);
+                $('#imgload').effect("bounce", 1000, function () {
+                    $('#imgLoad').html(star.image);
+                });
                 $('.mainImages').fadeIn(1000);
                 starpoints++;
-                currentLevel++
+                currentLevel++;
+                nextLevel;
             }
             else {
                 var pic = levels[currentLevel].Answers[currentAnswer].imgref;
@@ -103,10 +96,22 @@
      //works out the length of the progressbar and divs the value by the amount of questions in the level
     var progress = function () {
         var progresslength = $('#progressbar').width();
-        return progresslength / levelLenght;
+        return progresslength / currentlevelLenghtt;
     };
 
     //animates the progress icon to show progress of the level.
     var animate = function (progress) {
         $('#lightningimg').animate({ left: '+=' + progress() });
+    };
+
+    //function that loads next level
+    var nextLevel = function () { 
+        $('#nextlevel').click(function(){
+            $('#result').fadeOut(1000);
+            $('#star').fadeOut(1000);
+            currentlevel++;
+            $('span').html(' ' + level);
+            $('#lightningimg').animate({ left: '-=' + progresslength + 'px' });
+        });
+    
     };
