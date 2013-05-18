@@ -1,7 +1,6 @@
-//$(document).ready(function () {
 
-
-
+    
+    //loads a gold star image when ever called
     var star = {image:'<img class="mainImages" src="/images/star.png" alt="Cat" height="148" width="148">'}
 
     //declare all varilables

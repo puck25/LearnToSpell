@@ -14,7 +14,41 @@
 
     </head> 
     <body>
-        <div id="header">
+        <div id="container">
+
+            <div id="logodiv"><img id="logo" src="/images/logo.png" alt="logo"></div>
+            <div id="sundiv"><img id="sun" src="/images/sun.png" alt="sun"></div>
+
+            <div id="instructions">
+        <h2 id="instructionsTitle">How to play the game</h2>
+            <ol>
+                <li>Look at the picture</li>
+                <li>Work out what the picture is</li>
+                <li>Spell the word from the picture</li>
+                <li>Spell the words correctly to earn points</li>
+                <li>Earn stars when you complete a level</li>
+            </ol>
+            <br/>
+            <div id="instructionsButton" class="button">Start the game!</div>
+        </div>
+            
+            <div id="stats" class="statslook" class="progressbarhide" >
+                <div id="level" class="statslook">Level<span class="progressbarhide"></span></div>  
+                <div id="scoreContainer">
+                   <div id="score" class="StatSize" class="statslook">Score <p id="points"></p></div>
+                   <div id="stars" class="StatSize" class="statslook">Stars <p id="starpoints"></p></div>
+                </div>
+                <div id="controlContainer">
+                    <div id="play"  class ="button" class="controlLayout">Play</div>
+                    <div id="nextlevel"  class="button" class="controlLayout">Next level!</div>
+                </div>
+            </div> 
+
+          <div class="footer"><img id="grass" src="/images/grassFooter1.png" alt="Grass"></div>
+    </div>
+
+            
+        <!--<div id="header">
             <h1 id="title">Lewis's Learn to spell game!</h1>
         </div>
     <br/>
@@ -34,14 +68,7 @@
         <div id="result"></div>
         <br/>
 
-    <div id="stats" class="statslook">
-        <div id="level">Level<span class="progressbarhide"></span></div>
-        <div id="score" class="StatHeight">Score <p id="points"></p></div>
-        <div id="stars" class="StatHeight">Stars <p id="starpoints"></p></div>
-        <div class="initiate">
-            <div id="play"  class ="button" class="initiate">Play</div>
-            <div id="nextlevel"  class="button" class="initiate">Next level!</div>
-        </div>  
+    
     </div>
         <br/>
 
@@ -54,16 +81,22 @@
                     <td id="rat" class="progressbarhide" class="img"><img src="/imganswers/rat.jpg" alt="Rat" height="200" width="200"></td>
                     <td id="star" class="progressbarhide" class="img"><img src="/images/star.png" alt="Rat" height="200" width="200"></td>
                 </tr>
-            </table>-->
+            </table>
         <br/>
             <form class="progressbarhide">
                 Spell the Word<input id="textbox" type="text" name="Word">
                 <div id="clickme" class="button">spell!</div>
             </form>
         <br/>
+            
 
     <div  id="lightning" class="progressbarhide"><img id="lightningimg" src="/images/lightning.png" alt="race car"></div>    
-    <div id="progressbar" class="progressbarhide">Level Progress</div>
+    <div id="progressbar" class="progressbarhide">Level Progress</div>-->
+
+    
+        
+        
+      
     
 
     </body>
