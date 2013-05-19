@@ -31,19 +31,30 @@
             <br/>
             <div id="instructionsButton" class="button">Start the game!</div>
         </div>
+
+            <div id="cloud1div"><img id="cloud1" src="/images/cloud.png" alt="cloud"></div>
+            <div id="cloud2div"><img id="cloud2" src="/images/cloud.png" alt="cloud"></div>
+            <div id="cloudimgdiv" class="progressbarhide"><img id="cloudimg" src="/images/cloud.png" alt="cloud"><div id="imgLoad" class="progressbarhide" ></div></div>
             
-            <div id="stats" class="statslook" class="progressbarhide">
+           <div id="stats" class="statslook" class="progressbarhide">
                 <div id="level" class="statslook">Level<span class="progressbarhide"></span></div>  
                 <div id="scoreContainer">
-                   <div id="score" class="StatSize" class="statslook">Score <p id="points"></p></div>
-                   <div id="stars" class="StatSize" class="statslook">Stars <p id="starpoints"></p></div>
+                   <div id="score" class="StatSize" class="statslook">Score <p id="pointsinc" class="points"></p></div>
+                   <div id="stars" class="StatSize" class="statslook">Stars <p id="starsinc" class="points"></p></div>
                 </div>
                 <div id="controlContainer">
                     <div id="play"  class ="button" class="controlLayout">Play</div>
                     <div id="nextlevel"  class="button" class="controlLayout">Next level!</div>
                 </div>
-            </div> 
+            </div>
+                    <div id="formcontainer">
+                        <form class="progressbarhide">
+                        <input id="textbox" type="text" name="Word">
+                        <div id="clickme" class="button">spell!</div>
+                </form>
+               </div>
 
+            <div id="signdiv"><img id="sign" src="/images/levelCompleteSign.png" alt="Sign"><div id="finish"></div></div>
           <div class="footer"><img id="grass" src="/images/grassFooter1.png" alt="Grass"></div>
     </div>
 
