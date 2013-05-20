@@ -1,4 +1,6 @@
-
+$(document).ready(function () {
+    $('#instructions').draggable({ appendTo: "#instructions" });
+});
     
     //loads a gold star image when ever called
     var star = {image:'<img class="mainImages" src="/images/star.png" alt="Cat" height="100" width="100">'}
@@ -41,6 +43,7 @@
             $('span').fadeIn('slow');
             $('#lightning').fadeIn('slow');
             $('#points').html(score);
+            $('#textbox').focus();
         });
     });
 
@@ -62,6 +65,7 @@
             score++;
             if (score === currentlevelLenghtt) {
                 animate(progress);
+                $('input[name=Word]').val('');
                 $('#pointsinc').html(score);
                 $('.mainImages').effect("explode", 500);
                 $('#starsinc').html(starpoints);
@@ -75,6 +79,7 @@
             }
             else {
                 var pic = levels[currentLevel].Answers[currentAnswer].imgref;
+                $('#textbox').focus();
                 $('input[name=Word]').val('');
                 $('.mainImages').effect("explode", 500);
                 $('#finish').fadeIn(1000);
