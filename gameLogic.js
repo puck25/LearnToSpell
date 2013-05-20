@@ -10,11 +10,12 @@ $(document).ready(function () {
     var currentAnswer = 0;
     var currentImage = 0;
     var level = 1;
-    var currentlevelLenghtt = levels[currentLevel].Answers.length;
     var score = 0;
     var starpoints = 1;
+    var currentlevelLenght = levels[currentLevel].Answers.length;
     var totalAmountofLevels = levels.lenght;
     var Levelcomplete = 1;
+    var lastScore = 0;
 
 
     //hide instruction screen
@@ -58,24 +59,27 @@ $(document).ready(function () {
 
      //Main game funcational code
     var learToSpellGame = function (answer) {
+
         //If statement that checks if the game is complete... i.e. correctAnswer is more then available.
         var correctAnswer = levels[currentLevel].Answers[currentAnswer].Word;
         if (answer === correctAnswer) {
             currentAnswer++;
             score++;
-            if (score === currentlevelLenghtt) {
+            if (score === currentlevelLenght + lastScore) {
                 animate(progress);
+                $('#textbox').focus();
                 $('input[name=Word]').val('');
                 $('#pointsinc').html(score);
                 $('.mainImages').effect("explode", 500);
                 $('#starsinc').html(starpoints);
                 $('.mainImages').fadeIn(1000);
-                $('#finish').html('Well done, you have completed level!' + ' ' + Levelcomplete + '.' + 'Here is a gold star!');
+                $('#finish').html('Well done, you have completed level' + ' ' + Levelcomplete + '.' + 'Here is a gold star!');
                 $('#imgLoad').html(star.image);
                 $('.mainImages').fadeIn(1000);
                 starpoints++;
-                currentLevel++;
-                
+                lastScore = score;
+                Levelcomplete++;
+
             }
             else {
                 var pic = levels[currentLevel].Answers[currentAnswer].imgref;
@@ -100,7 +104,7 @@ $(document).ready(function () {
      //works out the length of the progressbar and divs the value by the amount of questions in the level
     var progress = function () {
         var progresslength = $('#progressbar').width();
-        return progresslength / currentlevelLenghtt;
+        return progresslength / currentlevelLenght;
     };
 
     //animates the progress icon to show progress of the level.
@@ -109,18 +113,21 @@ $(document).ready(function () {
     };
 
 
-        //loads next levelX
+        //loads next level
     $(document).ready(function () {
         $('#nextlevel').click(function () {
+            var progresslength = $('#progressbar').width();
+            $('#textbox').focus();
             currentLevel++
             currentAnswer = 0;
             level++;
             $('#finish').fadeOut(1000);
-            $('#imgLoad').fadeOut(1000);
             $('span').html(' ' + level);
             $('input[name=Word]').val('');
-            //$('#lightningimg').animate({ left: '-=' + progresslength + 'px' });
+            $('#finish').fadeIn(1000);
             $('#imgLoad').html(levels[currentLevel].Answers[currentAnswer].imgref);
+            currentlevelLenght = levels[currentLevel].Answers.length;
+            $('#lightningimg').animate({ left: '-=' + progresslength});
+            learToSpellGame();
         });
     });
- 

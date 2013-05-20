@@ -81,7 +81,7 @@ body{
 	box-shadow:
 		5px 6px 5px rgba(000,000,000,0.6),
 		inset 0px 0px 3px rgba(255,255,255,1);
-    z-index: 2;
+    z-index: 5;
  
     
 }
@@ -244,27 +244,10 @@ margin-left: 15px;
 
 
 #progressbar{
-    color: #000;
     position: absolute;
-    text-align: center;
-    font-size: 30px;
     height: 50px;
-    width: 65%;
+    width: 645px;
     bottom: 5px;
-    background-image: linear-gradient(bottom, rgb(48,46,48) 42%, rgb(173,173,176) 71%, rgb(235,235,235) 85%);
-    background-image: -o-linear-gradient(bottom, rgb(48,46,48) 42%, rgb(173,173,176) 71%, rgb(235,235,235) 85%);
-    background-image: -moz-linear-gradient(bottom, rgb(48,46,48) 42%, rgb(173,173,176) 71%, rgb(235,235,235) 85%);
-    background-image: -webkit-linear-gradient(bottom, rgb(48,46,48) 42%, rgb(173,173,176) 71%, rgb(235,235,235) 85%);
-    background-image: -ms-linear-gradient(bottom, rgb(48,46,48) 42%, rgb(173,173,176) 71%, rgb(235,235,235) 85%);
-
-    background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.42, rgb(48,46,48)),
-	color-stop(0.71, rgb(173,173,176)),
-	color-stop(0.85, rgb(235,235,235))
-);
 }
 .progressbarhide{
     display: none;
@@ -314,7 +297,7 @@ table{
     bottom: 10px;
     height: 100px;
     width:100px;
-    z-index: 1;
+    z-index: 3;
 }
 
 #imgLoad{
@@ -380,9 +363,15 @@ text-align: center;
 }
 #cloud1div{
     position: absolute;
-    margin-left: 170px;
-    margin-top: 10px;
+    margin-left: 278px;
+    margin-top: 54px;
 }
+
+#cloud1{
+    height: 106px;
+    width: 160px;
+}
+
 #cloud2div{
     position: absolute;
     margin-left: 570px;
@@ -420,3 +409,18 @@ z-index: 3;
     height: 40px;
     background-color: #4aa6ff;
 }
+#foodDiv{
+    position: absolute;
+    z-index: 2;
+    margin-left: 720px;
+    bottom: 0px;
+}
+
+#food{
+    height: 100px;
+    width:100px;
+}
+#instructionsButton{
+    position: relative;
+    bottom: 32px;
+    }
