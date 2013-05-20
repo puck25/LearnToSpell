@@ -5,6 +5,8 @@ body{
 }
 
 #container{
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: auto;
     margin-top: auto;
     overflow: hidden;
@@ -12,8 +14,6 @@ body{
     border-radius: 10px;
     width: 1024px;
     height: 588px;
-    margin-left: auto;
-    margin-right: auto;
     background: rgb(30,87,153); /* Old browsers */
     background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(41,137,216,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(50%,rgba(41,137,216,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
@@ -394,6 +394,8 @@ text-align: center;
 }
 
 #cloudimgdiv{
+    border-radius: 10px;
+    overflow: hidden;
     position: absolute;
     margin-left: 397px;
     margin-top: 113px;
@@ -412,4 +414,9 @@ height: 30px;
 width: 10px;
 z-index: 3;
     
+}
+
+#textbox{
+    height: 40px;
+    background-color: #4aa6ff;
 }

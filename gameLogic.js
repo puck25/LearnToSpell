@@ -1,7 +1,7 @@
 
     
     //loads a gold star image when ever called
-    var star = {image:'<img class="mainImages" src="/images/star.png" alt="Cat" height="148" width="148">'}
+    var star = {image:'<img class="mainImages" src="/images/star.png" alt="Cat" height="100" width="100">'}
 
     //declare all varilables
     var currentLevel = 0;
@@ -62,18 +62,16 @@
             score++;
             if (score === currentlevelLenghtt) {
                 animate(progress);
+                $('#pointsinc').html(score);
                 $('.mainImages').effect("explode", 500);
-                $('#starinc').html(starpoints);
+                $('#starsinc').html(starpoints);
                 $('.mainImages').fadeIn(1000);
-                $('#points').html(score);
                 $('#finish').html('Well done, you have completed level!' + ' ' + Levelcomplete + '.' + 'Here is a gold star!');
-                $('#imgload').effect("bounce", 1000, function () {
-                    $('#imgLoad').html(star.image);
-                });
+                $('#imgLoad').html(star.image);
                 $('.mainImages').fadeIn(1000);
                 starpoints++;
                 currentLevel++;
-                nextLevel;
+                
             }
             else {
                 var pic = levels[currentLevel].Answers[currentAnswer].imgref;
@@ -105,14 +103,19 @@
         $('#lightningimg').animate({ left: '+=' + progress() });
     };
 
-    //function that loads next level
-    var nextLevel = function () { 
-        $('#nextlevel').click(function(){
+
+        //loads next levelX
+    $(document).ready(function () {
+        $('#nextlevel').click(function () {
+            currentLevel++
+            currentAnswer = 0;
+            level++;
             $('#finish').fadeOut(1000);
-            $('#star').fadeOut(1000);
-            currentlevel++;
+            $('#imgLoad').fadeOut(1000);
             $('span').html(' ' + level);
-            $('#lightningimg').animate({ left: '-=' + progresslength + 'px' });
+            $('input[name=Word]').val('');
+            //$('#lightningimg').animate({ left: '-=' + progresslength + 'px' });
+            $('#imgLoad').html(levels[currentLevel].Answers[currentAnswer].imgref);
         });
-    
-    };
+    });
+ 
