@@ -30,7 +30,7 @@ $(document).ready(function () {
         });
     });
 
-    //code the loads the play command
+    //code that loads the play command
     $('#play').click(function () {
         $('#finish').fadeOut(1000);
         $('span').html(' ' + level);
@@ -60,6 +60,10 @@ $(document).ready(function () {
 
     //loads next level
     $('#nextlevel').click(function () {
+    if (currentLevel === levels.length) {
+        $('#finish').html("Well done you have completed the game");
+    } 
+    else{
         var progresslength = $('#progressbar').width();
         $('#textbox').focus();
         currentLevel++
@@ -73,6 +77,8 @@ $(document).ready(function () {
         currentlevelLenght = levels[currentLevel].Answers.length;
         $('#lightningimg').animate({ left: '-=' + progresslength });
         learToSpellGame();
+    }
+        
     });
 });
 
@@ -130,4 +136,9 @@ var progress = function () {
 //animates the progress icon to show progress of the level.
 var animate = function (progress) {
     $('#lightningimg').animate({ left: '+=' + progress() });
+};
+
+//function to check if game is complete
+var checkGameFinish = function () {
+    
 };
