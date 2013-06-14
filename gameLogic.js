@@ -4,6 +4,8 @@ var star = {image:'<img class="mainImages" src="/images/star.png" alt="Cat" heig
 
 //declare all varilables
 var currentLevel = 0;
+var endoflevel = 1;
+var finalAnswer = 0;
 var currentAnswer = 0;
 var currentImage = 0;
 var level = 1;
@@ -46,10 +48,16 @@ $(document).ready(function () {
 
     //code that calls the main game passing in the form value
     $('#clickme').click(function () {
-        var answer = $('input[name=Word]').val();
-        learToSpellGame(answer);
+        if (endoflevel === levels.length && finalAnswer === currentlevelLenght) {
+            GameComplete();
+        }
+        else {
+            var answer = $('input[name=Word]').val();
+            learToSpellGame(answer);
+        };
+
     });
-    
+
     //Allows return key to be used for answering question
     $('#textbox').keydown(function (e) {
         var code = e.which;
@@ -60,13 +68,11 @@ $(document).ready(function () {
 
     //loads next level
     $('#nextlevel').click(function () {
-    if (currentLevel === levels.length) {
-        $('#finish').html("Well done you have completed the game");
-    } 
-    else{
         var progresslength = $('#progressbar').width();
+        finalAnswer = 0;
         $('#textbox').focus();
-        currentLevel++
+        currentLevel++;
+        endoflevel++;
         currentAnswer = 0;
         level++;
         $('#finish').fadeOut(1000);
@@ -77,8 +83,6 @@ $(document).ready(function () {
         currentlevelLenght = levels[currentLevel].Answers.length;
         $('#lightningimg').animate({ left: '-=' + progresslength });
         learToSpellGame();
-    }
-        
     });
 });
 
@@ -90,6 +94,7 @@ var learToSpellGame = function (answer) {
     var correctAnswer = levels[currentLevel].Answers[currentAnswer].Word;
     if (answer === correctAnswer) {
         currentAnswer++;
+        finalAnswer++;
         score++;
         if (score === currentlevelLenght + lastScore) {
             animate(progress);
@@ -139,6 +144,7 @@ var animate = function (progress) {
 };
 
 //function to check if game is complete
-var checkGameFinish = function () {
-    
+var GameComplete = function () {
+    $('#stats').slideToggle(1000);
+    $('#cloudimgdiv').fadeOut(1000);
 };
