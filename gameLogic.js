@@ -48,14 +48,8 @@ $(document).ready(function () {
 
     //code that calls the main game passing in the form value
     $('#clickme').click(function () {
-        if (endoflevel === levels.length && finalAnswer === currentlevelLenght) {
-            GameComplete();
-        }
-        else {
             var answer = $('input[name=Word]').val();
             learToSpellGame(answer);
-        };
-
     });
 
     //Allows return key to be used for answering question
@@ -97,19 +91,27 @@ var learToSpellGame = function (answer) {
         finalAnswer++;
         score++;
         if (score === currentlevelLenght + lastScore) {
-            animate(progress);
-            $('#textbox').focus();
-            $('input[name=Word]').val('');
-            $('#pointsinc').html(score);
-            $('.mainImages').effect("explode", 500);
-            $('#starsinc').html(starpoints);
-            $('.mainImages').fadeIn(1000);
-            $('#finish').html('Well done, you have completed level' + ' ' + Levelcomplete + '.' + 'Here is a gold star!');
-            $('#imgLoad').html(star.image);
-            $('.mainImages').fadeIn(1000);
-            starpoints++;
-            lastScore = score;
-            Levelcomplete++;
+
+            if ( currentLevel + 1 === levels.length && currentAnswer === currentlevelLenght) {
+                animate(progress);
+                GameComplete();
+            }
+            else {
+                animate(progress);
+                $('#textbox').focus();
+                $('input[name=Word]').val('');
+                $('#pointsinc').html(score);
+                $('.mainImages').effect("explode", 500);
+                $('#starsinc').html(starpoints);
+                $('.mainImages').fadeIn(1000);
+                $('#finish').html('Well done, you have completed level' + ' ' + Levelcomplete + '.' + 'Here is a gold star!');
+                $('#imgLoad').html(star.image);
+                $('.mainImages').fadeIn(1000);
+                starpoints++;
+                lastScore = score;
+                Levelcomplete++;
+
+            };
 
         }
         else {
