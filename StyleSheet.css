@@ -408,6 +408,7 @@ z-index: 3;
 #textbox{
     height: 40px;
     background-color: #4aa6ff;
+    font-size: 20px;
 }
 #foodDiv{
     position: absolute;

@@ -191,3 +191,12 @@ var GameComplete = function () {
         fanfare.addEventListener("load", function() {
         fanfare.play();
         }, true);         
+
+        var birds = document.createElement('audio');
+        birds.setAttribute('src', '/sounds/birds.mp3');
+        birds.setAttribute('autoplay', 'autoplay');
+        //audioElement.load()
+        $.get();
+        birds.addEventListener("load", function() {
+        birds.play();
+        }, true);   
