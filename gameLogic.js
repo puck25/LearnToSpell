@@ -1,6 +1,8 @@
 
 //loads a gold star image when ever called
-var star = {image:'<img class="mainImages" src="/images/star.png" alt="Cat" height="100" width="100">'}
+var star = { image: '<img class="mainImages" src="/images/star.png" alt="winner" height="100" width="100">' };
+var GameComplete = { image: '<img class="mainImages" src="/images/winner.png" alt="winner" height="100" width="100">' };
+
 
 //declare all varilables
 var currentLevel = 0;
@@ -27,7 +29,7 @@ $(document).ready(function () {
         $('#instructions').slideUp(600, function () {
             $('#finish').fadeIn(1000, function () {
                 $('#finish').html('Click play to begin!');
-
+        musicStart.play();
             });
         });
     });
@@ -48,8 +50,8 @@ $(document).ready(function () {
 
     //code that calls the main game passing in the form value
     $('#clickme').click(function () {
-            var answer = $('input[name=Word]').val();
-            learToSpellGame(answer);
+        var answer = $('input[name=Word]').val();
+        learToSpellGame(answer);
     });
 
     //Allows return key to be used for answering question
@@ -78,6 +80,7 @@ $(document).ready(function () {
         $('#lightningimg').animate({ left: '-=' + progresslength });
         learToSpellGame();
     });
+
 });
 
 
@@ -91,10 +94,11 @@ var learToSpellGame = function (answer) {
         finalAnswer++;
         score++;
         if (score === currentlevelLenght + lastScore) {
-
+            //checks to see if the game is finished, if not loads next level.
             if ( currentLevel + 1 === levels.length && currentAnswer === currentlevelLenght) {
                 animate(progress);
                 GameComplete();
+                fanfare.play();
             }
             else {
                 animate(progress);
@@ -125,6 +129,7 @@ var learToSpellGame = function (answer) {
             animate(progress);
             $('#imgLoad').html(pic);
             $('.mainImages').fadeIn(1000);
+            cheer.play();
         };
 
     }
@@ -140,6 +145,12 @@ var progress = function () {
     return progresslength / currentlevelLenght;
 };
 
+//function that works out the amount to move henry by the total amount of levels
+var fullprogress = function(){
+        var progresslength = $('#progressbar').width();
+        return progresslength / levels.length;
+}
+
 //animates the progress icon to show progress of the level.
 var animate = function (progress) {
     $('#lightningimg').animate({ left: '+=' + progress() });
@@ -149,4 +160,34 @@ var animate = function (progress) {
 var GameComplete = function () {
     $('#stats').slideToggle(1000);
     $('#cloudimgdiv').fadeOut(1000);
+    $('#formcontainer').slideToggle(1000);
+    $('#cloudimg').html(GameComplete.image);
+    $('#gameComplete').fadeIn(3000);
 };
+
+        var musicStart = document.createElement('audio');
+        musicStart.setAttribute('src', '/sounds/AlphabetSong.mp3');
+        //audioElement.setAttribute('autoplay', 'autoplay');
+        //audioElement.load()
+        $.get();
+        musicStart.addEventListener("load", function() {
+        musicStart.play();
+        }, true);
+
+        var cheer = document.createElement('audio');
+        cheer.setAttribute('src', '/sounds/cheer.mp3');
+        //audioElement.setAttribute('autoplay', 'autoplay');
+        //audioElement.load()
+        $.get();
+        cheer.addEventListener("load", function() {
+        cheer.play();
+        }, true);
+        
+        var fanfare = document.createElement('audio');
+        fanfare.setAttribute('src', '/sounds/fanfare.mp3');
+        //audioElement.setAttribute('autoplay', 'autoplay');
+        //audioElement.load()
+        $.get();
+        fanfare.addEventListener("load", function() {
+        fanfare.play();
+        }, true);         

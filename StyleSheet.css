@@ -424,3 +424,11 @@ z-index: 3;
     position: relative;
     bottom: 32px;
     }
+
+#gameComplete{
+    z-index: 5;
+    position: absolute;
+    margin-left: 290px;
+    margin-right: auto;
+    margin-top: 200px;
+}
