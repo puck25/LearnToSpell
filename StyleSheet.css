@@ -277,7 +277,7 @@ table{
     position: absolute;
     margin-left: 430px;
     bottom: 170px;
-    width: 255px;
+    width: 325px;
 }
 
 #result{
@@ -408,8 +408,10 @@ z-index: 3;
 #textbox{
     height: 40px;
     background-color: #4aa6ff;
-    font-size: 20px;
+    font-size: 14pt;
 }
+
+
 #foodDiv{
     position: absolute;
     z-index: 2;
