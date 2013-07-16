@@ -145,6 +145,18 @@ var progress = function () {
     return progresslength / currentlevelLenght;
 };
 
+//code that works out the full length of the entire answers.js
+var completeGameLength = function () { 
+    var totalAnswerCount = 0;
+    //for (var i = 0; i < levels.length; i++) {
+    for (var i in levels) {
+        var level = levels[i];
+        var levelAnswerCount = level.Answers.length;
+        totalAnswerCount = totalAnswerCount + levelAnswerCount;
+    }
+    return totalAnswerCount;
+};
+
 //function that works out the amount to move henry by the total amount of levels
 var fullprogress = function(){
         var progresslength = $('#progressbar').width();
