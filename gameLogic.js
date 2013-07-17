@@ -77,7 +77,7 @@ $(document).ready(function () {
         $('#finish').fadeIn(1000);
         $('#imgLoad').html(levels[currentLevel].Answers[currentAnswer].imgref);
         currentlevelLenght = levels[currentLevel].Answers.length;
-        $('#lightningimg').animate({ left: '-=' + progresslength });
+        //$('#lightningimg').animate({ left: '-=' + progresslength });
         learToSpellGame();
     });
 
@@ -142,7 +142,7 @@ var learToSpellGame = function (answer) {
 //works out the length of the progressbar and divs the value by the amount of questions in the level
 var progress = function () {
     var progresslength = $('#progressbar').width();
-    return progresslength / currentlevelLenght;
+    return progresslength / completeGameLength();
 };
 
 //code that works out the full length of the entire answers.js
