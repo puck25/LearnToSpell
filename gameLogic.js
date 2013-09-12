@@ -20,6 +20,7 @@ var lastScore = 0;
 
 
 $(document).ready(function () {
+    alert("This game is best viewed using google chrome!")
     $('#instructions').draggable({ appendTo: "#instructions" });
 
     //hide instruction screen
