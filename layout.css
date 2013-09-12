@@ -435,3 +435,8 @@ z-index: 3;
     margin-right: auto;
     margin-top: 200px;
 }
+
+.mainImages{
+ height: 100px;
+ width: 100px;   
+}
